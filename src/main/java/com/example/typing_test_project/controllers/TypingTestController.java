@@ -21,7 +21,9 @@ public class TypingTestController {
 
     @PostMapping("/create")
     public ResponseEntity<TypingTest> createTypingTest(@RequestBody TypingTest typingTest) {
-        TypingTest createdTypingTest = typingTestService.createTypingTest(typingTest);
-        return ResponseEntity.ok(createdTypingTest);
+        TypingTest createdTest = typingTestService.createTypingTest(typingTest.getDifficulty(), typingTest.getText());
+        return ResponseEntity.ok(createdTest);
     }
+
+
 }
