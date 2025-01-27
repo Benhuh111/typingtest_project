@@ -13,6 +13,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @PostMapping
+    public ResponseEntity<User> createUser(@RequestBody User user) {
+        User createdUser = userService.createUser(user);
+        return ResponseEntity.ok(createdUser);
+    }
+
     @PostMapping("/create")
     public ResponseEntity<User> createUser(@RequestParam String name, @RequestParam String email) {
         User user = userService.createUser(name, email);

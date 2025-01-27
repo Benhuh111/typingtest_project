@@ -21,4 +21,8 @@ public class TypingTestService {
         typingTest.setText(text);
         return typingTestRepository.save(typingTest);
     }
+
+    public TypingTest createTypingTest(TypingTest typingTest) {
+        return typingTestRepository.save(typingTest);
+    }
 }

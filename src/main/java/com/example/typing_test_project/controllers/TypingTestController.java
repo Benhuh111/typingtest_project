@@ -20,8 +20,8 @@ public class TypingTestController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<TypingTest> createTypingTest(@RequestParam String difficulty, @RequestParam String text) {
-        TypingTest typingTest = typingTestService.createTypingTest(difficulty, text);
-        return ResponseEntity.ok(typingTest);
+    public ResponseEntity<TypingTest> createTypingTest(@RequestBody TypingTest typingTest) {
+        TypingTest createdTypingTest = typingTestService.createTypingTest(typingTest);
+        return ResponseEntity.ok(createdTypingTest);
     }
 }
