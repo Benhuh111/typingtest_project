@@ -22,6 +22,7 @@ public class DatabaseInitializer implements CommandLineRunner {
     @Autowired
     private TestResultRepository testResultRepository;
 
+
     @Override
     public void run(String... args) throws Exception {
         // Insert sample users
