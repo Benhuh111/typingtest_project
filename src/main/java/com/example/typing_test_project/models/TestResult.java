@@ -26,11 +26,9 @@ public class TestResult {
     }
 
     public TestResult() {
-
     }
 
     public TestResult(Long id, double v, double v1) {
-
     }
 
     public Long getId() {
@@ -65,11 +63,11 @@ public class TestResult {
         this.accuracy = accuracy;
     }
 
-    public LocalDateTime getTestDate() {
+    public LocalDateTime getDate() {
         return testDate;
     }
 
-    public void setTestDate(LocalDateTime testDate) {
+    public void setDate(LocalDateTime testDate) {
         this.testDate = testDate;
     }
 }

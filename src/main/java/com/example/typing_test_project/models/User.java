@@ -3,7 +3,7 @@ package com.example.typing_test_project.models;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "`user`")
+@Table(name = "`user`", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class User {
 
     @Id
@@ -12,6 +12,7 @@ public class User {
 
     private String name;
 
+    @Column(unique = true)
     private String email;
 
     public User() {
