@@ -22,6 +22,3 @@ To build and run the Docker container:
 
 ## CI/CD
 This project uses GitHub Actions for Continuous Integration. The workflow file is located at `.github/workflows/ci.yml`.
-
-## License
-This project is licensed under the MIT License.

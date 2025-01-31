@@ -5,44 +5,46 @@ import jakarta.persistence.*;
 @Entity
 public class TypingTest {
 
-        @Id
-        @GeneratedValue(strategy = GenerationType.AUTO)
-        private Long id;
 
-        private String difficulty;
 
-        @Column(length = 1000)
-        private String text;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-        public TypingTest() {
-        }
+    private String difficulty;
 
-        public TypingTest(String difficulty, String text) {
-            this.difficulty = difficulty;
-            this.text = text;
-        }
+    @Column(length = 1000)
+    private String text;
 
-        public Long getId() {
-            return id;
-        }
+    public TypingTest() {
+    }
 
-        public void setId(Long id) {
-            this.id = id;
-        }
+    public TypingTest(String difficulty, String text) {
+        this.difficulty = difficulty;
+        this.text = text;
+    }
 
-        public String getDifficulty() {
-            return difficulty;
-        }
+    public Long getId() {
+        return id;
+    }
 
-        public void setDifficulty(String difficulty) {
-            this.difficulty = difficulty;
-        }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-        public String getText() {
-            return text;
-        }
+    public String getDifficulty() {
+        return difficulty;
+    }
 
-        public void setText(String text) {
-            this.text = text;
-        }
+    public void setDifficulty(String difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
 }

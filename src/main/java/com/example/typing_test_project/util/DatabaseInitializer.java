@@ -32,7 +32,7 @@ public class DatabaseInitializer implements CommandLineRunner {
         userRepository.save(user2);
 
         // Insert sample typing tests
-        TypingTest test1 = new TypingTest("easy", "This is an easy test.");
+        TypingTest test1 = new TypingTest("easy", "Sample text for easy");
         TypingTest test2 = new TypingTest("medium", "This is a medium test.");
         typingTestRepository.save(test1);
         typingTestRepository.save(test2);

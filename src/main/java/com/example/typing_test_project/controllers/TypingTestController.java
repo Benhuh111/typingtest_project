@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/typing-tests")
 public class TypingTestController {
@@ -14,9 +16,9 @@ public class TypingTestController {
     private TypingTestService typingTestService;
 
     @GetMapping("/difficulty/{difficulty}")
-    public ResponseEntity<TypingTest> getTypingTestByDifficulty(@PathVariable String difficulty) {
-        TypingTest typingTest = typingTestService.getTypingTestByDifficulty(difficulty);
-        return typingTest != null ? ResponseEntity.ok(typingTest) : ResponseEntity.notFound().build();
+    public ResponseEntity<List<TypingTest>> getTypingTestsByDifficulty(@PathVariable String difficulty) {
+        List<TypingTest> typingTests = typingTestService.getTypingTestsByDifficulty(difficulty);
+        return typingTests != null && !typingTests.isEmpty() ? ResponseEntity.ok(typingTests) : ResponseEntity.notFound().build();
     }
 
     @PostMapping("/create")
@@ -24,6 +26,4 @@ public class TypingTestController {
         TypingTest createdTest = typingTestService.createTypingTest(typingTest.getDifficulty(), typingTest.getText());
         return ResponseEntity.ok(createdTest);
     }
-
-
 }

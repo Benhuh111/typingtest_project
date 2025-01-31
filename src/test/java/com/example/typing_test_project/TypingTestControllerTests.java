@@ -12,10 +12,12 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.Collections;
+import java.util.List;
+
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
 
 @WebMvcTest(TypingTestController.class)
 public class TypingTestControllerTests {
@@ -27,14 +29,15 @@ public class TypingTestControllerTests {
     private TypingTestService typingTestService;
 
     @Test
-    public void testGetTypingTestByDifficulty() throws Exception {
+    public void testGetTypingTestsByDifficulty() throws Exception {
         TypingTest mockTest = new TypingTest("easy", "Sample text");
-        when(typingTestService.getTypingTestByDifficulty("easy")).thenReturn(mockTest);
+        List<TypingTest> mockTestList = Collections.singletonList(mockTest);
+        when(typingTestService.getTypingTestsByDifficulty("easy")).thenReturn(mockTestList);
 
         mockMvc.perform(get("/api/typing-tests/difficulty/easy"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.difficulty").value("easy"))
-                .andExpect(jsonPath("$.text").value("Sample text"));
+                .andExpect(jsonPath("$[0].difficulty").value("easy"))
+                .andExpect(jsonPath("$[0].text").value("Sample text"));
     }
 
     @Test
